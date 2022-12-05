@@ -14,17 +14,16 @@ let mouse = document.querySelector(".mouse");
 let bg1 = document.querySelector(".bg1");
 let bg2 = document.querySelector(".bg2");
 let bg3 = document.querySelector(".bg3");
-
-let plus = 1;
-let count = 0;
-let b = "b";
-
 let radio1 = document.querySelector(".radio-1");
 let radio2 = document.querySelector(".radio-2");
 let radio3 = document.querySelector(".radio-3");
 let radios = document.querySelectorAll("input[name='duration']");
 let radioChecked = 0.16;
+let plus = 1;
+let count = 0;
+let b = "b";
 
+// Duration Form
 for (const radio of radios) {
     radio.onchange = (e) => {
         radioChecked = radio.value;
@@ -43,6 +42,7 @@ for (const radio of radios) {
     };
 }
 
+// Light-Dark Mode Button
 function darkMode() {
     section.classList.toggle("light-bg");
     countText.classList.toggle("light-font");
@@ -56,6 +56,7 @@ function darkMode() {
     sun.classList.toggle("disappear");
 }
 
+// Keybind Button
 function keybind() {
     mouse.classList.toggle("appear");
     letterB.classList.toggle("disappear");
@@ -74,6 +75,12 @@ function keybind() {
         bg2.removeEventListener("click", mouseClick);
         bg3.removeEventListener("click", mouseClick);
     }
+}
+
+// Refresh EventListener
+countText.addEventListener("click", countRefresh);
+function countRefresh() {
+    window.location.reload();
 }
 
 // Key EventListener
@@ -101,11 +108,6 @@ function keyPress(k) {
         keybindBtn.classList.add("none");
     }
     countText.innerText = count;
-}
-
-countText.addEventListener("click", countRefresh);
-function countRefresh() {
-    window.location.reload();
 }
 
 // Mouse Click EventListener
@@ -149,10 +151,10 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = 0;
             plus = 0;
-
             score = count;
-            let highScore = localStorage.getItem("highscore");
 
+            // Highest Score Setter
+            let highScore = localStorage.getItem("highscore");
             if (highScore == null) {
                 localStorage.setItem("highscore", score);
                 highestScore.innerText = score;
@@ -168,6 +170,7 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
+// Set Highest Score On-Screen
 function setHighScore() {
     getScore = JSON.parse(localStorage.getItem("highscore"));
     highestScore.innerText = getScore;
