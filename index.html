@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickever</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Media/letter-c.png">
+    <script src="https://kit.fontawesome.com/3bdf8f4880.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="section">
+    </section>
+
+    <h1 class="count">0</h1>
+    <h1 class="timer">00:10</h1>
+    <h1 class="highest-score">0</h1>
+
+    <form id="duration-form">
+        <input class="radio-1" id="radio" type="radio" name="duration" value="0.16" checked>
+        <input class="radio-2" id="radio" type="radio" name="duration" value="0.49">
+        <input class="radio-3" id="radio" type="radio" name="duration" value="0.99">
+    </form>
+
+    <h2 class="space-to-s">Press b to start</h2>
+    <h3 class="click-to-r">Click the number to restart</h3>
+
+    <div class="navbar">
+        <button class="dark-btn" onclick="darkMode()">
+            <i class="fa-solid fa-moon moon"></i>
+            <i class="fa-solid fa-sun sun"></i>
+        </button>
+        <button class="keybind" onclick="keybind()">
+            <i class="fa-solid fa-b letter-b"></i>
+            <i class="fa-solid fa-mouse mouse"></i>
+        </button>
+    </div>
+
+    <div class="bg1"></div>
+    <div class="bg2"></div>
+    <div class="bg3"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

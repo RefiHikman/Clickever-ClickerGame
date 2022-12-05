@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232323;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+section {
+    height: 100%;
+    width: 100%;
+    transition: 0.3s;
+    position: absolute;
+    z-index: 0;
+    user-select: none;
+}
+
+/* Main */
+.count {
+    font-size: 5rem;
+    color: #eee;
+    transition: 0.2s;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    animation: 0.7s ease-out 0s 1 onload-pop;
+    z-index: 10;
+}
+
+.timer {
+    font-size: 4rem;
+    color: #eee;
+    transition: 0.2s;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-weight: 600;
+    z-index: 2;
+    animation: 0.8s ease-out 0s 1 onload-pop;
+}
+
+.highest-score {
+    font-size: 4rem;
+    color: #eee;
+    transition: 0.2s;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-weight: 600;
+    animation: 0.9s ease 0s 1 onload-pop;
+}
+
+.highest-score::before {
+    content: "Highest Score : ";
+    font-size: 2rem;
+    font-weight: 350;
+}
+
+.space-to-s {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 200;
+    position: absolute;
+    bottom: 150px;
+    user-select: none;
+    font-size: 2.5rem;
+    transition: 0.3s;
+    animation: 0.7s ease 0s 1 onload-pop;
+}
+
+.click-to-r {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 200;
+    position: absolute;
+    bottom: 100px;
+    user-select: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    animation: 0.7s ease 0s 1 onload-pop;
+}
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dark-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 0;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0.8;
+    font-size: 2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+    animation: 0.7s ease-out 0s 1 onload-pop;
+}
+
+.dark-btn:hover {
+    transform: translateY(-10%);
+    opacity: 1;
+}
+
+.dark-btn:active {
+    transform: scale(90%);
+}
+
+.moon {
+    position: absolute;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.sun {
+    position: absolute;
+    transition: 0.1s;
+}
+
+.keybind {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 0;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0.8;
+    font-size: 2.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+    animation: 0.8s ease-out 0s 1 onload-pop;
+}
+
+.keybind:hover {
+    transform: translateY(-10%);
+    opacity: 1;
+}
+
+.keybind:active {
+    transform: scale(90%);
+}
+
+.mouse {
+    position: absolute;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.letter-b {
+    position: absolute;
+    transition: 0.1s;
+}
+
+/* Duration Radios */
+#duration-form {
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(20px, calc(50vh - 50%));
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#radio {
+    appearance: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+#radio:nth-child(1) {
+    animation: 0.4s ease 0.1s 1 onload-appear;
+}
+
+#radio:nth-child(2) {
+    animation: 0.4s ease 0.2s 1 onload-appear;
+}
+
+#radio:nth-child(3) {
+    animation: 0.4s ease 0.3s 1 onload-appear;
+}
+
+#radio:checked {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#radio:checked:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#radio:not(:checked) {
+    background-color: #ddd;
+}
+
+#radio:not(:checked):hover {
+    background-color: #aaa;
+}
+
+#radio:not(:checked)::before {
+    color: #232323;
+}
+
+#radio::before {
+    width: 100%;
+    height: 100%;
+    font-size: 1.7rem;
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 550;
+}
+
+.radio-1::before {
+    content: "10";
+}
+
+.radio-2::before {
+    content: "30";
+}
+
+.radio-3::before {
+    content: "60";
+}
+
+/* Background */
+.bg1 {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(127, 255, 212, 0.301);
+    position: absolute;
+    z-index: 0;
+    border-radius: 100%;
+    animation: 20s ease 0s infinite bg1;
+}
+.bg2 {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(240, 128, 128, 0.397);
+    position: absolute;
+    transform: translate(1000%);
+    z-index: 0;
+    border-radius: 100%;
+    animation: 15s ease 0.5s infinite bg2;
+}
+.bg3 {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(172, 255, 47, 0.384);
+    position: absolute;
+    transform: translate(1000%);
+    z-index: 0;
+    border-radius: 100%;
+    animation: 10s ease 1s infinite bg3;
+}
+
+/* Animation */
+@keyframes onload-pop {
+    0% {
+        opacity: 0;
+        transform: translateY(1200%);
+    }
+    80% {
+        opacity: 0.6;
+        transform: translateY(-28%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes onload-appear {
+    0% {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    80% {
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes bg1 {
+    0% {
+        transform: translateX(-350%) translateY(-100%);
+    }
+    30% {
+        transform: translateX(200%) translateY(200%);
+    }
+    50% {
+        transform: translateX(0%) translateY(0%);
+    }
+    70% {
+        transform: translateX(300%) translateY(-100%);
+    }
+    100% {
+        transform: translateX(-350%) translateY(-100%);
+    }
+}
+@keyframes bg2 {
+    0% {
+        transform: translateX(400%) translateY(100%);
+    }
+    30% {
+        transform: translateX(-200%) translateY(-200%);
+    }
+    50% {
+        transform: translateX(20%) translateY(20%);
+    }
+    70% {
+        transform: translateX(-300%) translateY(100%);
+    }
+    100% {
+        transform: translateX(400%) translateY(100%);
+    }
+}
+@keyframes bg3 {
+    0% {
+        transform: translateX(-350%) translateY(200%);
+    }
+    30% {
+        transform: translateX(100%) translateY(-200%);
+    }
+    50% {
+        transform: translateX(-20%) translateY(-20%);
+    }
+    70% {
+        transform: translateX(-100%) translateY(150%);
+    }
+    100% {
+        transform: translateX(-350%) translateY(200%);
+    }
+}
+
+/* Javascript Class-List */
+.none {
+    transform: scale(0%);
+}
+
+.light-bg {
+    background-color: #ddd;
+    transition: 0.3s;
+}
+
+.light-font {
+    color: #232323;
+}
+
+.appear {
+    opacity: 1;
+}
+
+.disappear {
+    opacity: 0;
+}
